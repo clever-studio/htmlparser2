@@ -34,7 +34,8 @@
         "lint": "eslint --ext=js,ts src",
         "format": "prettier --write '**/*.{ts,md,json}'",
         "build": "tsc",
-        "prepare": "npm run build"
+        "prepare": "npm run build",
+        "avonnibuild": "npm run build && gulp rollup"
     },
     "dependencies": {
         "domelementtype": "^2.0.1",
@@ -53,7 +54,18 @@
         "jest": "^25.1.0",
         "prettier": "^1.18.2",
         "ts-jest": "^25.2.1",
-        "typescript": "^3.5.3"
+        "typescript": "^3.5.3",
+        "gulp": "^3.9.1",
+        "gulp-load-plugins": "~2.0.3",
+        "gulp-typescript": "~3.2.4",
+        "rollup": "~2.3.4",
+        "@rollup/plugin-commonjs": "~11.0.2",
+        "@rollup/plugin-node-resolve": "~7.1.1",
+        "@rollup/plugin-alias": "~3.0.1",
+        "@rollup/plugin-json": "~4.0.2",
+        "rollup-plugin-node-builtins": "~2.1.2",
+        "rollup-plugin-node-globals": "~1.4.0",
+        "del": "^5.1.0"
     },
     "jest": {
         "preset": "ts-jest",

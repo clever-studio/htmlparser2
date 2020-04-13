@@ -1,3 +1,12 @@
 node_modules/
 coverage/
 lib/
+
+/.idea/.gitignore
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/codeStyles/Project.xml
+/.idea/htmlparser2.git.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/build/index.js

@@ -333,6 +333,10 @@ export default class Tokenizer {
             this._cbs.onopentagend();
             this._state = State.Text;
             this._sectionStart = this._index + 1;
+        } else if (c === "<") {
+            this._cbs.onselfclosingtag();
+            this._state = State.BeforeTagName;
+            this._sectionStart = this._index;
         } else if (c === "/") {
             this._state = State.InSelfClosingTag;
         } else if (!whitespace(c)) {
