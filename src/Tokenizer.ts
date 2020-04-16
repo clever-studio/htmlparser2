@@ -356,7 +356,7 @@ export default class Tokenizer {
         }
     }
     _stateInAttributeName(c: string) {
-        if (c === "=" || c === "/" || c === ">" || whitespace(c)) {
+        if (c === "=" || c === "/" || c === ">" || c === "<" || whitespace(c)) {
             this._cbs.onattribname(this._getSection());
             this._sectionStart = -1;
             this._state = State.AfterAttributeName;
@@ -366,7 +366,7 @@ export default class Tokenizer {
     _stateAfterAttributeName(c: string) {
         if (c === "=") {
             this._state = State.BeforeAttributeValue;
-        } else if (c === "/" || c === ">") {
+        } else if (c === "/" || c === ">" || c === "<") {
             this._cbs.onattribend();
             this._state = State.BeforeAttributeName;
             this._index--;
@@ -414,7 +414,7 @@ export default class Tokenizer {
         }
     }
     _stateInAttributeValueNoQuotes(c: string) {
-        if (whitespace(c) || c === ">") {
+        if (whitespace(c) || c === ">" || c === "<") {
             this._emitToken("onattribdata");
             this._cbs.onattribend();
             this._state = State.BeforeAttributeName;
